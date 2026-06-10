@@ -17,6 +17,7 @@
   --text: #fff;
   --text2: rgba(255,255,255,0.55);
   --text3: rgba(255,255,255,0.25);
+  --topbar-h: 36px;
   --nav-h: 68px;
   --max: 1180px;
   --pad-x: clamp(24px, 5vw, 80px);
@@ -134,11 +135,43 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 }
 
 /* ============================================================
+   TOP BAR
+   ============================================================ */
+#topbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--topbar-h);
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 101;
+}
+
+.topbar-link {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  opacity: 0.95;
+  transition: opacity 0.2s, gap 0.2s;
+}
+
+.topbar-link:hover {
+  opacity: 1;
+  gap: 10px;
+}
+
+/* ============================================================
    NAVIGATION
    ============================================================ */
 #nav {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: var(--topbar-h); left: 0; right: 0;
   height: var(--nav-h);
   display: flex;
   align-items: center;
@@ -210,7 +243,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 /* Mobile menu */
 #mobile-menu {
   position: fixed;
-  top: var(--nav-h);
+  top: calc(var(--topbar-h) + var(--nav-h));
   left: 0; right: 0;
   background: rgba(0,0,0,0.95);
   backdrop-filter: blur(20px);
@@ -291,7 +324,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   max-width: var(--max);
   margin: 0 auto;
   width: 100%;
-  padding-top: var(--nav-h);
+  padding-top: calc(var(--topbar-h) + var(--nav-h));
   isolation: isolate;
 }
 
@@ -768,7 +801,7 @@ body:not(:hover) #cursor-ring { opacity: 0; }
 
 .membership-visual {
   position: sticky;
-  top: calc(var(--nav-h) + 24px);
+  top: calc(var(--topbar-h) + var(--nav-h) + 24px);
   border-radius: var(--r);
   overflow: hidden;
   opacity: 0;
@@ -1339,12 +1372,12 @@ body:not(:hover) #cursor-ring { opacity: 0; }
   color: var(--text3);
 }
 
-/* Nav logo image */
+/* Nav logo image — brand pink */
 .nav-logo-img {
   height: 32px;
   width: auto;
   display: block;
-  filter: brightness(0) invert(1);
+  filter: brightness(0) saturate(100%) invert(45%) sepia(80%) saturate(600%) hue-rotate(296deg) brightness(105%);
 }
 
 /* App image (real screenshot replaces CSS mockup) */
