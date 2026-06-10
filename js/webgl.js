@@ -25,14 +25,14 @@
   const sizes      = new Float32Array(COUNT);
   const randoms    = new Float32Array(COUNT * 3); // per-particle random offsets
 
-  /* Color palette: brand rose-pink — muted, warm, sophisticated */
+  /* Color palette: brand mauve #c98faa — muted, dusty, sophisticated */
   const paletteSrc = [
-    new THREE.Color('#2A0D15'),
-    new THREE.Color('#5C1828'),
-    new THREE.Color('#8B2840'),
-    new THREE.Color('#B83558'),
-    new THREE.Color('#D94870'),
-    new THREE.Color('#C03A60'),
+    new THREE.Color('#180b11'),
+    new THREE.Color('#3d2030'),
+    new THREE.Color('#6b3a52'),
+    new THREE.Color('#9a5878'),
+    new THREE.Color('#c98faa'),
+    new THREE.Color('#a06585'),
   ];
 
   for (let i = 0; i < COUNT; i++) {
@@ -158,7 +158,7 @@
   const col2 = new Float32Array(COUNT2 * 3);
   const sz2  = new Float32Array(COUNT2);
   const rnd2 = new Float32Array(COUNT2 * 3);
-  const dimBlue = new THREE.Color('#2A0D15');
+  const dimBlue = new THREE.Color('#180b11');
 
   for (let i = 0; i < COUNT2; i++) {
     pos2[i * 3]     = (Math.random() - 0.5) * 12;
